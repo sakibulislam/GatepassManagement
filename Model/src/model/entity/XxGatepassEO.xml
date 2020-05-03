@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XxGatepassEO"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  DBObjectType="table"
+  DBObjectName="XX_GATEPASS"
+  AliasName="XxGatepassEO"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  RowClass="model.entity.XxGatepassEOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
+    <AttrArray Name="_publishEvents"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="HeaderId"
+    ColumnName="HEADER_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XX_GATEPASS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OrderNumber"
+    ColumnName="ORDER_NUMBER"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XX_GATEPASS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OrderedDate"
+    ColumnName="ORDERED_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="XX_GATEPASS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DeliveryId"
+    ColumnName="DELIVERY_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XX_GATEPASS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OrganizationId"
+    ColumnName="ORGANIZATION_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XX_GATEPASS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OrganizationCode"
+    Precision="3"
+    ColumnName="ORGANIZATION_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XX_GATEPASS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OperatingUnit"
+    ColumnName="OPERATING_UNIT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XX_GATEPASS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CustomerId"
+    ColumnName="CUSTOMER_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XX_GATEPASS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CustomerNumber"
+    Precision="30"
+    ColumnName="CUSTOMER_NUMBER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XX_GATEPASS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CustomerName"
+    Precision="360"
+    ColumnName="CUSTOMER_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XX_GATEPASS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="360"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SystemDeliveryDate"
+    ColumnName="SYSTEM_DELIVERY_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="XX_GATEPASS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Subinventory"
+    Precision="200"
+    ColumnName="SUBINVENTORY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XX_GATEPASS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="GatepassNo"
+    Precision="50"
+    ColumnName="GATEPASS_NO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XX_GATEPASS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="GatepassDate"
+    ColumnName="GATEPASS_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="XX_GATEPASS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TransportNo"
+    Precision="100"
+    ColumnName="TRANSPORT_NO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XX_GATEPASS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DriverName"
+    Precision="100"
+    ColumnName="DRIVER_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XX_GATEPASS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DriverContactNo"
+    Precision="100"
+    ColumnName="DRIVER_CONTACT_NO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XX_GATEPASS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FinalDestination"
+    Precision="360"
+    ColumnName="FINAL_DESTINATION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XX_GATEPASS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="360"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="VatChallanNo"
+    Precision="100"
+    ColumnName="VAT_CHALLAN_NO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XX_GATEPASS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TotalWeight"
+    ColumnName="TOTAL_WEIGHT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XX_GATEPASS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Status"
+    Precision="3"
+    ColumnName="STATUS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XX_GATEPASS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    ColumnName="CREATED_BY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XX_GATEPASS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreationDate"
+    ColumnName="CREATION_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="XX_GATEPASS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdatedBy"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XX_GATEPASS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdateDate"
+    ColumnName="LAST_UPDATE_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="XX_GATEPASS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OuName"
+    Precision="100"
+    ColumnName="OU_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XX_GATEPASS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RowID"
+    IsUpdateable="false"
+    ColumnName="ROWID"
+    SQLType="VARCHAR"
+    Type="oracle.jbo.domain.RowID"
+    ColumnType="ROWID"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="ItemCode"
+    Precision="250"
+    ColumnName="ITEM_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XX_GATEPASS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="250"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ItemDescription"
+    Precision="500"
+    ColumnName="ITEM_DESCRIPTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XX_GATEPASS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ItemId"
+    ColumnName="ITEM_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XX_GATEPASS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LineNumber"
+    ColumnName="LINE_NUMBER"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XX_GATEPASS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RespId"
+    ColumnName="RESP_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XX_GATEPASS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PropietorContactNo"
+    Precision="200"
+    ColumnName="PROPIETOR_CONTACT_NO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XX_GATEPASS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ProprietorName"
+    Precision="500"
+    ColumnName="PROPRIETOR_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XX_GATEPASS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+  </Attribute>
+  <Key
+    Name="SysC001366491">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C001366491"/>
+      <Attr Name="_checkCondition" Value='"HEADER_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.XxGatepassEO.HeaderId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC001366492">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C001366492"/>
+      <Attr Name="_checkCondition" Value='"ORDER_NUMBER" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.XxGatepassEO.OrderNumber"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC001366493">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C001366493"/>
+      <Attr Name="_checkCondition" Value='"ORDERED_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.XxGatepassEO.OrderedDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC001366494">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C001366494"/>
+      <Attr Name="_checkCondition" Value='"DELIVERY_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.XxGatepassEO.DeliveryId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC001366495">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C001366495"/>
+      <Attr Name="_checkCondition" Value='"ORGANIZATION_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.XxGatepassEO.OrganizationId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC001366496">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C001366496"/>
+      <Attr Name="_checkCondition" Value='"ORGANIZATION_CODE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.XxGatepassEO.OrganizationCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC001366497">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C001366497"/>
+      <Attr Name="_checkCondition" Value='"OPERATING_UNIT" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.XxGatepassEO.OperatingUnit"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC001366498">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C001366498"/>
+      <Attr Name="_checkCondition" Value='"CUSTOMER_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.XxGatepassEO.CustomerId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC001366499">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C001366499"/>
+      <Attr Name="_checkCondition" Value='"CUSTOMER_NUMBER" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.XxGatepassEO.CustomerNumber"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC001366500">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C001366500"/>
+      <Attr Name="_checkCondition" Value='"CUSTOMER_NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.XxGatepassEO.CustomerName"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC001366501">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C001366501"/>
+      <Attr Name="_checkCondition" Value='"SYSTEM_DELIVERY_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.XxGatepassEO.SystemDeliveryDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC001366502">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C001366502"/>
+      <Attr Name="_checkCondition" Value='"SUBINVENTORY" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.XxGatepassEO.Subinventory"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC001366503">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C001366503"/>
+      <Attr Name="_checkCondition" Value='"GATEPASS_NO" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.XxGatepassEO.GatepassNo"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC001366504">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C001366504"/>
+      <Attr Name="_checkCondition" Value='"GATEPASS_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.XxGatepassEO.GatepassDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC001366505">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C001366505"/>
+      <Attr Name="_checkCondition" Value='"TRANSPORT_NO" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.XxGatepassEO.TransportNo"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC001366506">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C001366506"/>
+      <Attr Name="_checkCondition" Value='"DRIVER_NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.XxGatepassEO.DriverName"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC001366507">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C001366507"/>
+      <Attr Name="_checkCondition" Value='"DRIVER_CONTACT_NO" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.XxGatepassEO.DriverContactNo"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC001366508">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C001366508"/>
+      <Attr Name="_checkCondition" Value='"FINAL_DESTINATION" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.XxGatepassEO.FinalDestination"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC001366509">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C001366509"/>
+      <Attr Name="_checkCondition" Value='"VAT_CHALLAN_NO" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.XxGatepassEO.VatChallanNo"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC001366510">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C001366510"/>
+      <Attr Name="_checkCondition" Value='"TOTAL_WEIGHT" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.entity.XxGatepassEO.TotalWeight"/>
+    </AttrArray>
+  </Key>
+</Entity>

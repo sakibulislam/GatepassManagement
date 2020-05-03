@@ -1,0 +1,608 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelHeader text="Gatepass System" id="ph1"
+                        icon="/icons/pass.png">
+          <f:facet name="context"/>
+          <f:facet name="menuBar"/>
+          <f:facet name="toolbar"/>
+          <f:facet name="legend"/>
+          <f:facet name="info"/>
+          <af:panelCollection id="pc1"
+                              styleClass="AFStretchWidth">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar">
+              <af:toolbar id="t3">
+                <af:commandButton actionListener="#{bindings.Commit.execute}"
+                                  text="Save" id="cb2" visible="false"/>
+                <af:commandButton text="Gatepass Documents" id="commandButton1"
+                                  icon="/icons/file (4).png"
+                                  inlineStyle="height:30px; font-weight:bold; font-size:small;"
+                                  shortDesc="See Gatepass Docs" visible="false">
+                  <af:showPopupBehavior popupId="::p1"
+                                        alignId="commandButton1"/>
+                </af:commandButton>
+                <af:commandImageLink text="All Gatepass Documents" id="cil6"
+                                     inlineStyle="font-weight:bold; font-size:small;"
+                                     icon="/icons/file (4).png"
+                                     shortDesc="See All Gatepass Documents">
+                  <af:showPopupBehavior popupId="::p1" alignId="::f1"/>
+                </af:commandImageLink>
+                <af:spacer width="20" height="20" id="s1"/>
+                <af:commandImageLink text="Refresh" id="cil7"
+                                     inlineStyle="font-weight:bold; font-size:small;"
+                                     icon="/icons/update2.png"
+                                     shortDesc="Please Refresh Each Time After Generating PDF Report"
+                                     action="#{MainBean.refreshAll}"
+                                     partialSubmit="true"/>
+                <af:panelGroupLayout id="pgl1" halign="center"
+                                     layout="horizontal"
+                                     inlineStyle="font-size:15px; color:Navy; font-weight:bold;"
+                                     visible="false">
+                  <af:outputText value="Press this button " id="ot50"/>
+                  <af:spacer width="10" height="10" id="s2"/>
+                  <af:commandButton id="cb3" icon="/icons/update2.png"
+                                    actionListener="#{MainBean.refreshButtonActionListener}"
+                                    partialSubmit="true" shortDesc="Refresh"/>
+                  <af:spacer width="10" height="10" id="s3"/>
+                  <af:outputText id="ot51"
+                                 value="after generating each report"/>
+                </af:panelGroupLayout>
+              </af:toolbar>
+            </f:facet>
+            <f:facet name="statusbar"/>
+            <af:table value="#{bindings.gatepass1.collectionModel}" var="row"
+                      rows="#{bindings.gatepass1.rangeSize}"
+                      emptyText="#{bindings.gatepass1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      fetchSize="#{bindings.gatepass1.rangeSize}"
+                      rowBandingInterval="0"
+                      filterModel="#{bindings.gatepass1Query.queryDescriptor}"
+                      queryListener="#{bindings.gatepass1Query.processQuery}"
+                      filterVisible="true" varStatus="vs"
+                      selectedRowKeys="#{bindings.gatepass1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.gatepass1.collectionModel.makeCurrent}"
+                      rowSelection="single" id="t1"
+                      binding="#{MainBean.getPassHeaderTableBind}"
+                      partialTriggers="::cb3">
+              <af:column sortProperty="OperatingUnitName" filterable="true"
+                         sortable="true" headerText="Operating Unit Name"
+                         id="c1" align="center" width="50"
+                         filterFeatures="caseInsensitive">
+                <af:outputText value="#{row.OperatingUnitName}" id="ot48"/>
+              </af:column>
+              <af:column sortProperty="OrderNumber" filterable="true"
+                         sortable="true" headerText="Order No." id="c9"
+                         align="center" width="55">
+                <af:outputText value="#{row.OrderNumber}" id="ot45">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.gatepass1.hints.OrderNumber.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="OrderedDate" filterable="true"
+                         sortable="true" headerText="Ordered Date" id="c3"
+                         align="center" width="65" frozen="true">
+                <f:facet name="filter">
+                  <af:inputDate value="#{vs.filterCriteria.OrderedDate}"
+                                id="id1" contentStyle="width:40px;"/>
+                </f:facet>
+                <af:outputText value="#{row.OrderedDate}" id="ot46">
+                  <af:convertDateTime pattern="#{bindings.gatepass1.hints.OrderedDate.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="OrganizationCode" filterable="true"
+                         sortable="true" headerText="Ware House" id="c7"
+                         align="center" width="30"
+                         filterFeatures="caseInsensitive">
+                <af:outputText value="#{row.OrganizationCode}" id="ot4"/>
+              </af:column>
+              <af:column headerText="Customer Name" id="c20" align="center"
+                         sortable="true" filterable="true"
+                         sortProperty="CustomerName"
+                         filterFeatures="caseInsensitive">
+                <af:outputText value="#{row.CustomerName}" id="ot49"/>
+              </af:column>
+              <af:column sortProperty="CustomerNumber" filterable="true"
+                         sortable="true" headerText="Customer No." id="c5"
+                         align="center" width="45">
+                <af:outputText value="#{row.CustomerNumber}" id="ot47"/>
+              </af:column>
+              <af:column sortProperty="ProprietorName" filterable="true"
+                         sortable="true" headerText="Proprietor Name" id="c2"
+                         align="center" width="80"
+                         filterFeatures="caseInsensitive">
+                <af:outputText value="#{row.ProprietorName}" id="ot37"/>
+              </af:column>
+              <af:column sortProperty="ProprietorContactNo" filterable="true"
+                         sortable="true" headerText="Proprietor Contact" id="c4"
+                         align="center" width="75">
+                <af:outputText value="#{row.ProprietorContactNo}" id="ot26"/>
+              </af:column>
+              <af:column sortProperty="SystemDeliveryDate" filterable="true"
+                         sortable="true" headerText="System Delivery Date"
+                         id="c8" align="center" width="65">
+                <f:facet name="filter">
+                  <af:inputDate value="#{vs.filterCriteria.SystemDeliveryDate}"
+                                id="id2" contentStyle="width:40px;"/>
+                </f:facet>
+                <af:outputText value="#{row.SystemDeliveryDate}" id="ot44">
+                  <af:convertDateTime pattern="#{bindings.gatepass1.hints.SystemDeliveryDate.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="Subinventory" filterable="true"
+                         sortable="true" headerText="Sub Inventory" id="c6"
+                         align="center" width="50"
+                         filterFeatures="caseInsensitive">
+                <af:outputText value="#{row.Subinventory}" id="ot43"/>
+              </af:column>
+              <af:column id="c11" headerText="Gatepass Date" align="center"
+                         width="85">
+                <af:inputDate label="Label 1" id="id3" autoSubmit="true"
+                              binding="#{MainBean.gatePassDate}"
+                              contentStyle="width:60px;"/>
+              </af:column>
+              <af:column id="c12" headerText="Transport No." align="center"
+                         showRequired="true" width="90">
+                <af:inputText label="Label 2" id="it2" autoSubmit="true"
+                              binding="#{MainBean.getTransportNoInputBind}"
+                              valueChangeListener="#{MainBean.transportNoValueChangeEvent}"/>
+              </af:column>
+              <af:column id="c13" headerText="Driver Name" align="center"
+                         showRequired="true" width="100">
+                <af:inputText label="Label 1" id="it1" autoSubmit="true"
+                              binding="#{MainBean.getDriverNameInputBind}"
+                              valueChangeListener="#{MainBean.driverNameValueChangeEvent}"/>
+              </af:column>
+              <af:column id="c14" headerText="Driver Contact No." align="center"
+                         showRequired="true" width="90">
+                <af:inputText label="Label 3" id="it3" autoSubmit="true"
+                              binding="#{MainBean.getDriverContactInputBind}"
+                              valueChangeListener="#{MainBean.driverContactNoValueChangeEvent}"/>
+              </af:column>
+              <af:column id="c15" headerText="Final Destination" align="center">
+                <af:inputText label="Label 4" id="it4" autoSubmit="true"
+                              binding="#{MainBean.getFinalDestinationInputBind}"/>
+              </af:column>
+              <af:column id="c16" headerText="Vat Challan No." align="center"
+                         width="100">
+                <af:inputText label="Label 5" id="it5" autoSubmit="true"
+                              binding="#{MainBean.getVatChallanNoInputBind}"/>
+              </af:column>
+              <af:column id="c18" headerText="Total Weight" align="center"
+                         width="40">
+                <af:inputText label="Label 6" id="it6" autoSubmit="true"
+                              binding="#{MainBean.getTotalWeightInputBind}"
+                              converter="javax.faces.Number"
+                              contentStyle="width:27px;"/>
+              </af:column>
+              <af:column id="c17" align="center" width="60" headerText="Action"
+                         visible="false">
+                <af:commandButton text="Submit" id="cb1"
+                                  actionListener="#{MainBean.saveXXGatePassTable}">
+                  <af:clientListener method="newWindow" type="action"/>
+                </af:commandButton>
+              </af:column>
+              <af:column id="c19" headerText="Report" align="center"
+                         width="120">
+                <af:commandLink text="Submit Report" id="cl3"
+                                styleClass="x7j p_AFTextOnly"
+                                actionListener="#{MainBean.saveXXGatePassCommandLink}"
+                                binding="#{MainBean.submitReportCommLinkBind}"
+                                visible="false">
+                  <af:clientListener method="newWindow" type="action"/>
+                </af:commandLink>
+                <af:commandImageLink text="Generate PDF" id="cil5"
+                                     inlineStyle="font-weight:bold;"
+                                     icon="/icons/PDF.png"
+                                     shortDesc="Click to Generat Report"
+                                     actionListener="#{MainBean.saveXXGatePassCommandLink}"
+                                     action="#{MainBean.refreshAll}">
+                  <af:clientListener method="newWindow" type="click"/>
+                </af:commandImageLink>
+              </af:column>
+            </af:table>
+          </af:panelCollection>
+        </af:panelHeader>
+        <af:spacer width="10" height="10" id="s4"/>
+        <af:panelHeader text="Gatepass Details" id="ph2"
+                        icon="/icons/dashboard (3).png">
+          <f:facet name="context"/>
+          <f:facet name="menuBar"/>
+          <f:facet name="toolbar"/>
+          <f:facet name="legend"/>
+          <f:facet name="info"/>
+          <af:panelCollection id="pc2" styleClass="AFStretchWidth"
+                              partialTriggers="::pc1:t1"
+                              inlineStyle="height:250px;">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar"/>
+            <f:facet name="statusbar"/>
+            <af:table value="#{bindings.GatePassDetail1.collectionModel}"
+                      var="row" rows="#{bindings.GatePassDetail1.rangeSize}"
+                      emptyText="#{bindings.GatePassDetail1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      fetchSize="#{bindings.GatePassDetail1.rangeSize}"
+                      rowBandingInterval="0"
+                      filterModel="#{bindings.GatePassDetail1Query.queryDescriptor}"
+                      queryListener="#{bindings.GatePassDetail1Query.processQuery}"
+                      filterVisible="true" varStatus="vs"
+                      selectedRowKeys="#{bindings.GatePassDetail1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.GatePassDetail1.collectionModel.makeCurrent}"
+                      rowSelection="single" id="t2" partialTriggers=":::pc1:t1"
+                      binding="#{MainBean.gatePassDetailTable}">
+              <af:column headerText="Sl." id="c63" align="center" width="25">
+                <af:outputText value="#{vs.index+1}" id="ot42"/>
+              </af:column>
+              <af:column sortProperty="OrderNumber" filterable="true"
+                         sortable="true" headerText="Order Number" id="c60"
+                         align="center">
+                <af:outputText value="#{row.OrderNumber}" id="ot1">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.GatePassDetail1.hints.OrderNumber.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="ItemId" filterable="true" sortable="true"
+                         headerText="Item Id" id="c28" align="center">
+                <af:outputText value="#{row.ItemId}" id="ot41">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.GatePassDetail1.hints.ItemId.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="ItemCode" filterable="true"
+                         sortable="true" headerText="Item Code" id="c35"
+                         align="center" width="200">
+                <af:outputText value="#{row.ItemCode}" id="ot30"/>
+              </af:column>
+              <af:column sortProperty="ItemDesc" filterable="true"
+                         sortable="true" headerText="Item Description" id="c32"
+                         align="center" width="200">
+                <af:outputText value="#{row.ItemDesc}" id="ot27"/>
+              </af:column>
+              <af:column sortProperty="ShippedQuantity" filterable="true"
+                         sortable="true" headerText="Shipped Qty" id="c21"
+                         align="center" width="50">
+                <af:outputText value="#{row.ShippedQuantity}" id="ot40">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.GatePassDetail1.hints.ShippedQuantity.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="Uom" filterable="true" sortable="true"
+                         headerText="UOM" id="c22" align="center" width="50">
+                <af:outputText value="#{row.Uom}" id="ot38"/>
+              </af:column>
+            </af:table>
+          </af:panelCollection>
+        </af:panelHeader>
+        <af:popup id="p1"
+                  popupFetchListener="#{MainBean.gatepassInfoPopUpFetchListener}"
+                  contentDelivery="lazyUncached">
+          <af:dialog id="d2" title="Gatepass Documents" type="none">
+            <af:panelGroupLayout id="pgl2" halign="center" layout="horizontal"
+                                 visible="true">
+              <af:spacer width="10" height="10" id="s8"/>
+              <af:outputText value="Total" id="outputText1"
+                             inlineStyle="font-size:medium; color:Navy; font-weight:bold;"/>
+              <af:spacer width="10" height="10" id="spacer1"/>
+              <af:outputText value="#{bindings.XxGatepassVO1.estimatedRowCount}"
+                             id="outputText2"
+                             inlineStyle="font-size:24px; font-weight:bold; color:rgb(0,180,180);"
+                             partialTriggers="pc3:t4"/>
+              <af:spacer width="10" height="10" id="s6"/>
+              <af:outputText value="Gatepass" id="outputText3"
+                             inlineStyle="font-size:medium; color:Navy; font-weight:bold;"/>
+            </af:panelGroupLayout>
+            <af:panelCollection id="pc3"
+                                inlineStyle="width:1180px; height:400px;">
+              <f:facet name="menus"/>
+              <f:facet name="toolbar">
+                <af:toolbar id="t6">
+                  <af:commandLink text="PDF Report" id="cl2"
+                                    styleClass="x7j p_AFTextOnly"
+                                    actionListener="#{JasperBean.runGatePassReportCommandLink}"
+                                    partialSubmit="false"
+                                  inlineStyle="font-weight:bold;"
+                                  visible="false">
+                        <af:clientListener method="newWindow" type="action"/>
+                  </af:commandLink>
+                  <af:spacer width="10" height="10" id="s5"/>
+                  <af:commandImageLink actionListener="#{bindings.Commit.execute}"
+                                       text="Save"
+                                       id="cil2" icon="/icons/save new.png"
+                                       inlineStyle="font-weight:bold; font-size:small;"
+                                       shortDesc="Click to Save the Update"
+                                       partialSubmit="true"
+                                       action="#{MainBean.refreshAll}"/>
+                </af:toolbar>
+              </f:facet>
+              <f:facet name="statusbar"/>
+              <af:table value="#{bindings.XxGatepassVO1.collectionModel}"
+                        var="row" rows="#{bindings.XxGatepassVO1.rangeSize}"
+                        emptyText="#{bindings.XxGatepassVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        fetchSize="#{bindings.XxGatepassVO1.rangeSize}"
+                        rowBandingInterval="0"
+                        filterModel="#{bindings.XxGatepassVO1Query.queryDescriptor}"
+                        queryListener="#{bindings.XxGatepassVO1Query.processQuery}"
+                        filterVisible="true" varStatus="vs"
+                        selectedRowKeys="#{bindings.XxGatepassVO1.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.XxGatepassVO1.collectionModel.makeCurrent}"
+                        rowSelection="single" id="t4"
+                        partialTriggers="cil1 ::cil2">
+                <af:column headerText="Sl."
+                           id="c74" width="25" align="center">
+                  <af:outputText value="#{vs.index+1}" id="ot39"/>
+                </af:column>
+                <af:column id="c23" headerText="Delete" width="70"
+                           align="center">
+                  <af:commandImageLink actionListener="#{bindings.Delete.execute}"
+                                       text="Delete"
+                                       disabled="#{!bindings.Delete.enabled}"
+                                       id="cil1" icon="/icons/delete (2).png"
+                                       inlineStyle="font-weight:bold;"
+                                       shortDesc="Click to Delete Row"
+                                       partialSubmit="true"/>
+                </af:column>
+                <af:column id="c25" headerText="Report" align="center">
+                  <af:commandImageLink text="PDF Report" id="cil3"
+                                       inlineStyle="font-weight:bold; "
+                                       actionListener="#{JasperBean.runGatePassReportCommandLink}"
+                                       icon="/icons/PDF.png"
+                                       shortDesc="Click to Generate PDF Report">
+                    <af:clientListener method="newWindow" type="click"/>
+                  </af:commandImageLink>
+                </af:column>
+                <af:column id="c24" headerText="Attachment" align="center"
+                           width="93">
+                  <af:commandImageLink text="Attachment" id="cil4"
+                                       inlineStyle="font-weight:bold;"
+                                       icon="/icons/attach-xxl.png"
+                                       action="#{MainBean.callAttachment}"
+                                       partialSubmit="true"
+                                       shortDesc="Click to Attach Document"/>
+                </af:column>
+                <af:column sortProperty="OuName" filterable="true"
+                           sortable="true" headerText="OU Name" id="c44"
+                           align="center" width="50">
+                  <af:outputText value="#{row.OuName}" id="ot33"/>
+                </af:column>
+                <af:column sortProperty="OrderNumber" filterable="true"
+                           sortable="true"
+                           headerText="Order Number"
+                           id="c57" width="60" align="center" frozen="true">
+                  <af:outputText value="#{row.OrderNumber}" id="ot25"
+                                 visible="false">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.XxGatepassVO1.hints.OrderNumber.format}"/>
+                  </af:outputText>
+                  <af:commandLink text="#{row.OrderNumber}" id="cl1"
+                                  partialSubmit="true"
+                                  inlineStyle="font-weight:bold;"
+                                  shortDesc="See Order Details">
+                    <af:showPopupBehavior popupId=":::p2"
+                                          alignId=":::f1"/>
+                  </af:commandLink>
+                </af:column>
+                <af:column headerText="Creator Name" id="c43" align="center"
+                           sortable="true" filterable="true"
+                           sortProperty="CreatorName" width="100">
+                  <af:outputText value="#{row.CreatorName}" id="ot8"/>
+                </af:column>
+                <af:column sortProperty="OrderedDate" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.XxGatepassVO1.hints.OrderedDate.label}"
+                           id="c61" visible="false" align="center">
+                  <f:facet name="filter">
+                    <af:inputDate value="#{vs.filterCriteria.OrderedDate}"
+                                  id="id7"/>
+                  </f:facet>
+                  <af:outputText value="#{row.OrderedDate}" id="ot34">
+                    <af:convertDateTime pattern="#{bindings.XxGatepassVO1.hints.OrderedDate.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="GatepassNo" filterable="true"
+                           sortable="true" headerText="Gatepass No" id="c58"
+                           align="center" width="80">
+                  <af:outputText value="#{row.GatepassNo}" id="ot7"/>
+                </af:column>
+                <af:column sortProperty="GatepassDate" filterable="true"
+                           sortable="true" headerText="Gatepass Date" id="c50"
+                           align="center" width="75">
+                  <f:facet name="filter">
+                    <af:inputDate value="#{vs.filterCriteria.GatepassDate}"
+                                  id="id6" contentStyle="width:50px;"/>
+                  </f:facet>
+                  <af:outputText value="#{row.GatepassDate}" id="ot16">
+                    <af:convertDateTime pattern="#{bindings.XxGatepassVO1.hints.GatepassDate.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="TransportNo" filterable="true"
+                           sortable="true" headerText="Transport No" id="c59"
+                           align="center" width="90">
+                  <af:outputText value="#{row.TransportNo}" id="ot9"/>
+                </af:column>
+                <af:column sortProperty="DriverName" filterable="true"
+                           sortable="true" headerText="Driver Name" id="c56"
+                           align="center">
+                  <af:outputText value="#{row.DriverName}" id="ot35"/>
+                </af:column>
+                <af:column sortProperty="DriverContactNo" filterable="true"
+                           sortable="true" headerText="Driver Contact No"
+                           id="c51" align="center" width="90">
+                  <af:outputText value="#{row.DriverContactNo}" id="ot17"/>
+                </af:column>
+                <af:column sortProperty="FinalDestination" filterable="true"
+                           sortable="true" headerText="Final Destination"
+                           id="c47" align="center">
+                  <af:outputText value="#{row.FinalDestination}" id="ot21"/>
+                </af:column>
+                <af:column sortProperty="VatChallanNo" filterable="true"
+                           sortable="true" headerText="Vat Challan No" id="c46"
+                           align="center" width="75">
+                  <af:outputText value="#{row.VatChallanNo}" id="ot12"/>
+                </af:column>
+                <af:column sortProperty="TotalWeight" filterable="true"
+                           sortable="true" headerText="Total Weight" id="c53"
+                           align="center" width="35">
+                  <af:outputText value="#{row.TotalWeight}" id="ot18">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.XxGatepassVO1.hints.TotalWeight.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="CustomerName" filterable="true"
+                           sortable="true" headerText="Customer Name" id="c67"
+                           align="center" width="150">
+                  <af:outputText value="#{row.CustomerName}" id="ot28"/>
+                </af:column>
+                <af:column headerText="Customer No" id="c52" align="center"
+                           width="50" sortable="true" filterable="true"
+                           sortProperty="CustomerNumber">
+                  <af:outputText value="#{row.CustomerNumber}" id="ot24"/>
+                </af:column>
+                <af:column headerText="Proprietor Name" id="c30" align="center"
+                           sortable="true" filterable="true"
+                           sortProperty="ProprietorName">
+                  <af:outputText value="#{row.ProprietorName}" id="ot3"/>
+                </af:column>
+                <af:column headerText="Proprietor Contact No." id="c36"
+                           align="center" sortable="true" filterable="true"
+                           sortProperty="PropietorContactNo">
+                  <af:outputText value="#{row.PropietorContactNo}" id="ot31"/>
+                </af:column>
+                <af:column sortProperty="SystemDeliveryDate" filterable="true"
+                           sortable="true" headerText="System Delivery Date"
+                           id="c70" align="center" width="75">
+                  <f:facet name="filter">
+                    <af:inputDate value="#{vs.filterCriteria.SystemDeliveryDate}"
+                                  id="id10" contentStyle="width:50px;"/>
+                  </f:facet>
+                  <af:outputText value="#{row.SystemDeliveryDate}" id="ot15">
+                    <af:convertDateTime pattern="#{bindings.XxGatepassVO1.hints.SystemDeliveryDate.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="CustomerId" filterable="true"
+                           sortable="true" headerText="Customer Id" id="c62"
+                           align="center" width="50">
+                  <af:outputText value="#{row.CustomerId}" id="ot32">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.XxGatepassVO1.hints.CustomerId.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="OrganizationId" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.XxGatepassVO1.hints.OrganizationId.label}"
+                           id="c42" visible="false" align="center">
+                  <af:outputText value="#{row.OrganizationId}" id="ot23">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.XxGatepassVO1.hints.OrganizationId.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="OrganizationCode" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.XxGatepassVO1.hints.OrganizationCode.label}"
+                           id="c68" visible="false" align="center">
+                  <af:outputText value="#{row.OrganizationCode}" id="ot11"/>
+                </af:column>
+                <af:column sortProperty="OperatingUnit" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.XxGatepassVO1.hints.OperatingUnit.label}"
+                           id="c49" visible="false" align="center">
+                  <af:outputText value="#{row.OperatingUnit}" id="ot29">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.XxGatepassVO1.hints.OperatingUnit.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="CustomerNumber" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.XxGatepassVO1.hints.CustomerNumber.label}"
+                           id="c72" visible="false" align="center">
+                  <af:outputText value="#{row.CustomerNumber}" id="ot10"/>
+                </af:column>
+                <af:column sortProperty="Subinventory" filterable="true"
+                           sortable="true"
+                           headerText="Subinventory"
+                           id="c55" align="center" width="65">
+                  <af:outputText value="#{row.Subinventory}" id="ot36"/>
+                </af:column>
+                <af:column sortProperty="Status" filterable="true"
+                           sortable="true" headerText="Status" id="c69"
+                           align="center" width="30" visible="false">
+                  <af:outputText value="#{row.Status}" id="ot22"/>
+                </af:column>
+              </af:table>
+            </af:panelCollection>
+          </af:dialog>
+        </af:popup>
+        <af:popup id="p2"
+                  popupFetchListener="#{MainBean.orderDetailsPopupFetchListener}"
+                  contentDelivery="lazyUncached">
+          <af:dialog id="d3" title="Order Details" type="none"
+                     inlineStyle="padding-left:200.0px;">
+            <af:table value="#{bindings.GatePassDetailV2_1.collectionModel}"
+                      var="row" rows="#{bindings.GatePassDetailV2_1.rangeSize}"
+                      emptyText="#{bindings.GatePassDetailV2_1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      fetchSize="#{bindings.GatePassDetailV2_1.rangeSize}"
+                      rowBandingInterval="0"
+                      filterModel="#{bindings.GatePassDetailV2_1Query.queryDescriptor}"
+                      queryListener="#{bindings.GatePassDetailV2_1Query.processQuery}"
+                      filterVisible="true" varStatus="vs"
+                      selectedRowKeys="#{bindings.GatePassDetailV2_1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.GatePassDetailV2_1.collectionModel.makeCurrent}"
+                      rowSelection="single" id="t5"
+                      inlineStyle="width:780px;">
+              <af:column headerText="Sl."
+                         id="c48" width="25" align="center">
+                <af:outputText value="#{vs.index+1}" id="ot20"/>
+              </af:column>
+              <af:column sortProperty="OrderNumber" filterable="true"
+                         sortable="true"
+                         headerText="Order No."
+                         id="c10" align="center">
+                <af:outputText value="#{row.OrderNumber}" id="ot6"/>
+              </af:column>
+              <af:column sortProperty="ItemId" filterable="true" sortable="true"
+                         headerText="Item Id"
+                         id="c45" align="center">
+                <af:outputText value="#{row.ItemId}" id="ot2"/>
+              </af:column>
+              <af:column sortProperty="ItemCode" filterable="true"
+                         sortable="true"
+                         headerText="Item Code"
+                         id="c40" width="200" align="center">
+                <af:outputText value="#{row.ItemCode}" id="ot13"/>
+              </af:column>
+              <af:column sortProperty="ItemDesc" filterable="true"
+                         sortable="true"
+                         headerText="Item Description"
+                         id="c37" width="200" align="center">
+                <af:outputText value="#{row.ItemDesc}" id="ot19"/>
+              </af:column>
+              <af:column sortProperty="ShippedQuantity" filterable="true"
+                         sortable="true"
+                         headerText="Shipped Qty"
+                         id="c41" width="50" align="center">
+                <af:outputText value="#{row.ShippedQuantity}" id="ot5"/>
+              </af:column>
+              <af:column sortProperty="Uom" filterable="true" sortable="true"
+                         headerText="UOM"
+                         id="c39" width="50" align="center">
+                <af:outputText value="#{row.Uom}" id="ot14"/>
+              </af:column>
+            </af:table>
+          </af:dialog>
+        </af:popup>
+      </af:form>
+      <f:facet name="metaContainer">
+        <af:resource type="javascript">
+            function newWindow(){
+              document.getElementById("f1").target = "_blank;targetfeatures=toolbar=no location=no directories=no menubar=no";
+            
+            }
+        </af:resource>
+      </f:facet>
+    </af:document>
+  </f:view>
+</jsp:root>

@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report10" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="202"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="HeaderId" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT ROWNUM AS SL,
+       XX_GATEPASS."HEADER_ID" AS XX_GATEPASS_HEADER_ID,
+       XX_GATEPASS."ORDER_NUMBER" AS XX_GATEPASS_ORDER_NUMBER,
+       XX_GATEPASS."GATEPASS_NO" AS XX_GATEPASS_GATEPASS_NO,
+       XX_GATEPASS."GATEPASS_DATE" AS XX_GATEPASS_GATEPASS_DATE,
+       TO_CHAR (XX_GATEPASS."GATEPASS_DATE", 'DD-MM-YYYY')
+          AS GATEPASS_DATE,
+       XX_GATEPASS."TRANSPORT_NO" AS XX_GATEPASS_TRANSPORT_NO,
+       XX_GATEPASS."DRIVER_NAME" AS XX_GATEPASS_DRIVER_NAME,
+       XX_GATEPASS."DRIVER_CONTACT_NO" AS XX_GATEPASS_DRIVER_CONTACT_NO,
+       XX_GATEPASS."FINAL_DESTINATION" AS XX_GATEPASS_FINAL_DESTINATION,
+       XX_GATEPASS."VAT_CHALLAN_NO" AS XX_GATEPASS_VAT_CHALLAN_NO,
+       XX_GATEPASS."TOTAL_WEIGHT" AS XX_GATEPASS_TOTAL_WEIGHT,
+       XX_GATEPASS."STATUS" AS XX_GATEPASS_STATUS,
+       XX_GATEPASS."CREATED_BY" AS XX_GATEPASS_CREATED_BY,
+       XX_GATEPASS."CREATION_DATE" AS XX_GATEPASS_CREATION_DATE,
+       XX_GATEPASS."LAST_UPDATED_BY" AS XX_GATEPASS_LAST_UPDATED_BY,
+       XX_GATEPASS."LAST_UPDATE_DATE" AS XX_GATEPASS_LAST_UPDATE_DATE,
+       XX_GATEPASS."OU_NAME" AS XX_GATEPASS_OU_NAME,
+       XX_GATEPASS."LINE_NUMBER" AS XX_GATEPASS_LINE_NUMBER,
+       XX_GATEPASS."ITEM_ID" AS XX_GATEPASS_ITEM_ID,
+       XX_GATEPASS."ITEM_CODE" AS XX_GATEPASS_ITEM_CODE,
+       XX_GATEPASS."ITEM_DESCRIPTION" AS XX_GATEPASS_ITEM_DESCRIPTION,
+       XX_GATEPASS."RESP_ID" AS XX_GATEPASS_RESP_ID,
+       XX_GATEPASS."ORDERED_DATE" AS XX_GATEPASS_ORDERED_DATE,
+       XX_GATEPASS."DELIVERY_ID" AS XX_GATEPASS_DELIVERY_ID,
+       XX_GATEPASS."ORGANIZATION_ID" AS XX_GATEPASS_ORGANIZATION_ID,
+       XX_GATEPASS."ORGANIZATION_CODE" AS XX_GATEPASS_ORGANIZATION_CODE,
+       XX_GATEPASS."OPERATING_UNIT" AS XX_GATEPASS_OPERATING_UNIT,
+       XX_GATEPASS."CUSTOMER_ID" AS XX_GATEPASS_CUSTOMER_ID,
+       XX_GATEPASS."CUSTOMER_NUMBER" AS XX_GATEPASS_CUSTOMER_NUMBER,
+       XX_GATEPASS."CUSTOMER_NAME" AS XX_GATEPASS_CUSTOMER_NAME,
+       TO_CHAR (XX_GATEPASS."SYSTEM_DELIVERY_DATE", 'DD-MM-YYYY')
+          AS SYSTEM_DELIVERY_DATE,
+       XX_GATEPASS."SYSTEM_DELIVERY_DATE" AS XX_GATEPASS_SYSTEM_DELIVERY_DA,
+       XX_GATEPASS."SUBINVENTORY" AS XX_GATEPASS_SUBINVENTORY,
+       XX_GATEPASS."PROPRIETOR_NAME" AS PROPRIETOR_NAME,
+       XX_GATEPASS."PROPIETOR_CONTACT_NO" AS PROPRIETOR_CONTACT,
+       (SELECT USER_NAME
+          FROM FND_USER
+         WHERE USER_ID = XX_GATEPASS."CREATED_BY")
+          AS CREATOR_NAME,
+       XX_GATEPASS_ENTRY_V1."HEADER_ID" AS HEADER_ID,
+       XX_GATEPASS_ENTRY_V1."ITEM_DESC" AS ITEM_DESC,
+       XX_GATEPASS_ENTRY_V1."ITEM_CODE" AS ITEM_CODE,
+       XX_GATEPASS_ENTRY_V1."SHIPPED_QUANTITY" AS QTY,
+       XX_GATEPASS_ENTRY_V1."UOM" AS UOM
+  FROM APPS.XX_GATEPASS XX_GATEPASS, APPS.XX_GATEPASS_ENTRY_V1
+ WHERE XX_GATEPASS.HEADER_ID = XX_GATEPASS_ENTRY_V1.HEADER_ID
+AND XX_GATEPASS.HEADER_ID = TO_NUMBER($P{HeaderId})]]>
+	</queryString>
+	<field name="SL" class="java.math.BigDecimal"/>
+	<field name="XX_GATEPASS_HEADER_ID" class="java.math.BigDecimal"/>
+	<field name="XX_GATEPASS_ORDER_NUMBER" class="java.math.BigDecimal"/>
+	<field name="XX_GATEPASS_GATEPASS_NO" class="java.lang.String"/>
+	<field name="XX_GATEPASS_GATEPASS_DATE" class="java.sql.Timestamp"/>
+	<field name="GATEPASS_DATE" class="java.lang.String"/>
+	<field name="XX_GATEPASS_TRANSPORT_NO" class="java.lang.String"/>
+	<field name="XX_GATEPASS_DRIVER_NAME" class="java.lang.String"/>
+	<field name="XX_GATEPASS_DRIVER_CONTACT_NO" class="java.lang.String"/>
+	<field name="XX_GATEPASS_FINAL_DESTINATION" class="java.lang.String"/>
+	<field name="XX_GATEPASS_VAT_CHALLAN_NO" class="java.lang.String"/>
+	<field name="XX_GATEPASS_TOTAL_WEIGHT" class="java.math.BigDecimal"/>
+	<field name="XX_GATEPASS_STATUS" class="java.lang.String"/>
+	<field name="XX_GATEPASS_CREATED_BY" class="java.math.BigDecimal"/>
+	<field name="XX_GATEPASS_CREATION_DATE" class="java.sql.Timestamp"/>
+	<field name="XX_GATEPASS_LAST_UPDATED_BY" class="java.math.BigDecimal"/>
+	<field name="XX_GATEPASS_LAST_UPDATE_DATE" class="java.sql.Timestamp"/>
+	<field name="XX_GATEPASS_OU_NAME" class="java.lang.String"/>
+	<field name="XX_GATEPASS_LINE_NUMBER" class="java.math.BigDecimal"/>
+	<field name="XX_GATEPASS_ITEM_ID" class="java.math.BigDecimal"/>
+	<field name="XX_GATEPASS_ITEM_CODE" class="java.lang.String"/>
+	<field name="XX_GATEPASS_ITEM_DESCRIPTION" class="java.lang.String"/>
+	<field name="XX_GATEPASS_RESP_ID" class="java.math.BigDecimal"/>
+	<field name="XX_GATEPASS_ORDERED_DATE" class="java.sql.Timestamp"/>
+	<field name="XX_GATEPASS_DELIVERY_ID" class="java.math.BigDecimal"/>
+	<field name="XX_GATEPASS_ORGANIZATION_ID" class="java.math.BigDecimal"/>
+	<field name="XX_GATEPASS_ORGANIZATION_CODE" class="java.lang.String"/>
+	<field name="XX_GATEPASS_OPERATING_UNIT" class="java.math.BigDecimal"/>
+	<field name="XX_GATEPASS_CUSTOMER_ID" class="java.math.BigDecimal"/>
+	<field name="XX_GATEPASS_CUSTOMER_NUMBER" class="java.lang.String"/>
+	<field name="XX_GATEPASS_CUSTOMER_NAME" class="java.lang.String"/>
+	<field name="SYSTEM_DELIVERY_DATE" class="java.lang.String"/>
+	<field name="XX_GATEPASS_SYSTEM_DELIVERY_DA" class="java.sql.Timestamp"/>
+	<field name="XX_GATEPASS_SUBINVENTORY" class="java.lang.String"/>
+	<field name="PROPRIETOR_NAME" class="java.lang.String"/>
+	<field name="PROPRIETOR_CONTACT" class="java.lang.String"/>
+	<field name="CREATOR_NAME" class="java.lang.String"/>
+	<field name="HEADER_ID" class="java.math.BigDecimal"/>
+	<field name="ITEM_DESC" class="java.lang.String"/>
+	<field name="ITEM_CODE" class="java.lang.String"/>
+	<field name="QTY" class="java.math.BigDecimal"/>
+	<field name="UOM" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="329" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="103" y="14" width="350" height="33"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans Mono" size="22"/>
+				</textElement>
+				<text><![CDATA[Northern Flour Mills Ltd.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="157" y="104" width="256" height="22" forecolor="#000000"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans Mono" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Delivery Challan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="157" y="47" width="256" height="22"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans Mono"/>
+				</textElement>
+				<text><![CDATA[29,Mohakhali,C/A, Dhaka]]></text>
+			</staticText>
+			<line>
+				<reportElement mode="Transparent" x="0" y="136" width="1" height="172"/>
+			</line>
+			<line>
+				<reportElement mode="Transparent" x="554" y="137" width="1" height="172"/>
+			</line>
+			<line>
+				<reportElement x="0" y="136" width="555" height="1"/>
+			</line>
+			<line>
+				<reportElement x="0" y="308" width="555" height="1"/>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="313" y="279" width="95" height="20"/>
+				<textElement textAlignment="Left">
+					<font fontName="DejaVu Sans Mono"/>
+				</textElement>
+				<text><![CDATA[Driver Name:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="7" y="174" width="100" height="20"/>
+				<textElement textAlignment="Left">
+					<font fontName="DejaVu Sans Mono"/>
+				</textElement>
+				<text><![CDATA[Customer No:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="313" y="174" width="80" height="20"/>
+				<textElement textAlignment="Left">
+					<font fontName="DejaVu Sans Mono"/>
+				</textElement>
+				<text><![CDATA[Order No:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" stretchType="RelativeToBandHeight" x="7" y="225" width="117" height="20"/>
+				<textElement textAlignment="Left">
+					<font fontName="DejaVu Sans Mono"/>
+				</textElement>
+				<text><![CDATA[Prop. Name:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" stretchType="RelativeToBandHeight" x="7" y="251" width="117" height="20"/>
+				<textElement textAlignment="Left">
+					<font fontName="DejaVu Sans Mono"/>
+				</textElement>
+				<text><![CDATA[Prop. Contact:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" stretchType="RelativeToBandHeight" x="7" y="279" width="117" height="20"/>
+				<textElement textAlignment="Left">
+					<font fontName="DejaVu Sans Mono"/>
+				</textElement>
+				<text><![CDATA[Dest. Address:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="7" y="199" width="120" height="20"/>
+				<textElement textAlignment="Left">
+					<font fontName="DejaVu Sans Mono"/>
+				</textElement>
+				<text><![CDATA[Customer Name:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="313" y="251" width="95" height="20"/>
+				<textElement textAlignment="Left">
+					<font fontName="DejaVu Sans Mono"/>
+				</textElement>
+				<text><![CDATA[Transport No:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="313" y="199" width="120" height="20"/>
+				<textElement textAlignment="Left">
+					<font fontName="DejaVu Sans Mono"/>
+				</textElement>
+				<text><![CDATA[Delivery Date:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="7" y="148" width="100" height="20"/>
+				<textElement textAlignment="Left">
+					<font fontName="DejaVu Sans Mono"/>
+				</textElement>
+				<text><![CDATA[Gatepass No:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="313" y="148" width="120" height="20"/>
+				<textElement textAlignment="Left">
+					<font fontName="DejaVu Sans Mono"/>
+				</textElement>
+				<text><![CDATA[Gatepass Date:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="313" y="225" width="120" height="20"/>
+				<textElement textAlignment="Left">
+					<font fontName="DejaVu Sans Mono"/>
+				</textElement>
+				<text><![CDATA[VAT Challan No:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="127" y="148" width="100" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{XX_GATEPASS_GATEPASS_NO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="127" y="174" width="100" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{XX_GATEPASS_CUSTOMER_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="127" y="199" width="180" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{XX_GATEPASS_CUSTOMER_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="127" y="279" width="180" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{XX_GATEPASS_FINAL_DESTINATION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="174" width="100" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{XX_GATEPASS_ORDER_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="225" width="100" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{XX_GATEPASS_VAT_CHALLAN_NO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="251" width="100" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{XX_GATEPASS_TRANSPORT_NO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="279" width="100" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{XX_GATEPASS_DRIVER_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="127" y="225" width="180" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{PROPRIETOR_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="127" y="251" width="180" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{PROPRIETOR_CONTACT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="148" width="100" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{GATEPASS_DATE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="199" width="100" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{SYSTEM_DELIVERY_DATE}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="-6" y="14" width="106" height="42"/>
+				<imageExpression class="java.lang.String"><![CDATA["mjLogo.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="457" y="-20" width="119" height="120"/>
+				<imageExpression class="java.lang.String"><![CDATA["SHAADlogo.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="50" height="15"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans Mono"/>
+				</textElement>
+				<text><![CDATA[Sl.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="50" y="19" width="382" height="15"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans Mono"/>
+				</textElement>
+				<text><![CDATA[Product Description]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="432" y="19" width="55" height="15"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans Mono"/>
+				</textElement>
+				<text><![CDATA[Qty]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="487" y="19" width="65" height="15"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans Mono"/>
+				</textElement>
+				<text><![CDATA[UOM]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="18" width="555" height="1"/>
+			</line>
+			<line>
+				<reportElement x="0" y="35" width="555" height="1"/>
+			</line>
+			<line>
+				<reportElement mode="Transparent" x="0" y="18" width="1" height="18"/>
+			</line>
+			<line>
+				<reportElement mode="Transparent" x="554" y="18" width="1" height="18"/>
+			</line>
+			<line>
+				<reportElement mode="Transparent" x="50" y="19" width="1" height="16"/>
+			</line>
+			<line>
+				<reportElement mode="Transparent" x="431" y="19" width="1" height="16"/>
+			</line>
+			<line>
+				<reportElement mode="Transparent" x="487" y="19" width="1" height="16"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="50" height="15"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans Mono" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{SL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="487" y="0" width="65" height="15"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans Mono" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{UOM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="432" y="1" width="55" height="15"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans Mono" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{QTY}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="15" width="555" height="1"/>
+			</line>
+			<line>
+				<reportElement mode="Transparent" x="0" y="0" width="1" height="16"/>
+			</line>
+			<line>
+				<reportElement mode="Transparent" x="554" y="0" width="1" height="16"/>
+			</line>
+			<line>
+				<reportElement mode="Transparent" x="50" y="0" width="1" height="16"/>
+			</line>
+			<line>
+				<reportElement mode="Transparent" x="431" y="0" width="1" height="16"/>
+			</line>
+			<line>
+				<reportElement mode="Transparent" x="487" y="0" width="1" height="16"/>
+			</line>
+			<textField>
+				<reportElement x="51" y="0" width="372" height="15"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans Mono"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{ITEM_DESC}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="80" splitType="Stretch">
+			<line>
+				<reportElement x="4" y="43" width="139" height="1"/>
+			</line>
+			<line>
+				<reportElement x="170" y="43" width="120" height="1"/>
+			</line>
+			<line>
+				<reportElement x="313" y="43" width="100" height="1"/>
+			</line>
+			<line>
+				<reportElement x="450" y="43" width="100" height="1"/>
+			</line>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="72" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="4" y="48" width="139" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans Mono" size="12"/>
+				</textElement>
+				<text><![CDATA[Customer Signature ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="170" y="48" width="120" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans Mono" size="12"/>
+				</textElement>
+				<text><![CDATA[Prepared By]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="313" y="48" width="100" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans Mono" size="12"/>
+				</textElement>
+				<text><![CDATA[Checked By]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="450" y="48" width="100" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans Mono" size="12"/>
+				</textElement>
+				<text><![CDATA[Authorized By]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="170" y="26" width="120" height="15"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans Mono" size="12"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CREATOR_NAME}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="454" y="0" width="80" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans Mono" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="534" y="0" width="20" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20"/>
+				<textElement>
+					<font fontName="DejaVu Sans Mono" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

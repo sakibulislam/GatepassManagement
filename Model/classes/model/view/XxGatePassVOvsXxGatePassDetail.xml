@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XxGatePassVOvsXxGatePassDetail"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.view.XxGatePassVOvsXxGatePassDetail_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="XxGatepassVO"
+    Cardinality="1"
+    Owner="model.view.XxGatepassVO"
+    Source="true">
+    <DesignTime>
+      <Attr Name="_finderName" Value="XxGatepassVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.view.XxGatepassVO.HeaderId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="gatepass"
+    Cardinality="-1"
+    Owner="model.view.GatePassDetailV2">
+    <DesignTime>
+      <Attr Name="_finderName" Value="GatePassDetailV2"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.view.GatePassDetailV2.HeaderId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

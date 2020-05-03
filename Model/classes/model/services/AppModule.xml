@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppModule"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  ClearCacheOnRollback="true"
+  ComponentClass="model.services.AppModuleImpl"
+  DefClass="model.services.AppModuleDefImpl"
+  ComponentInterface="model.services.common.AppModule"
+  ClientProxyName="model.services.client.AppModuleClient">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+    <Attr Name="_isDefCodegen" Value="true"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewUsage
+    Name="gatepass1"
+    ViewObjectName="model.view.gatepass"/>
+  <ViewUsage
+    Name="GatePassDetail1"
+    ViewObjectName="model.view.GatePassDetail"/>
+  <ViewUsage
+    Name="XxGatepassVO1"
+    ViewObjectName="model.view.XxGatepassVO"/>
+  <ViewUsage
+    Name="GatePassDetailV2_1"
+    ViewObjectName="model.view.GatePassDetailV2"/>
+  <ViewLinkUsage
+    Name="GatePassVsGatePassDeatail1"
+    ViewLinkObjectName="model.view.GatePassVsGatePassDeatail"
+    SrcViewUsageName="model.services.AppModule.gatepass1"
+    DstViewUsageName="model.services.AppModule.GatePassDetail1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="XxGatePassVOvsXxGatePassDetail1"
+    ViewLinkObjectName="model.view.XxGatePassVOvsXxGatePassDetail"
+    SrcViewUsageName="model.services.AppModule.XxGatepassVO1"
+    DstViewUsageName="model.services.AppModule.GatePassDetailV2_1"
+    Reversed="false"/>
+  <ClientInterface>
+    <Method
+      Name="setSessionValues">
+      <Return
+        Type="void"/>
+      <Parameter
+        Name="orgId"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="userId"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="respId"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="respAppl"
+        Type="java.lang.String"/>
+    </Method>
+  </ClientInterface>
+</AppModule>

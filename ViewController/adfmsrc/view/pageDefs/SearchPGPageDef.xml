@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.62.29" id="SearchPGPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <invokeAction id="setSessionValue" Binds="setSessionValues"
+                  Refresh="always"/>
+    <iterator Binds="XxGatepassVO1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="XxGatepassVO1Iterator"/>
+    <searchRegion Binds="XxGatepassVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="XxGatepassVO1Query"/>
+    <iterator Binds="GatePassDetail1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="GatePassDetail1Iterator"/>
+    <searchRegion Binds="GatePassDetail1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="GatePassDetail1Query"/>
+    <iterator Binds="GatePassDetailV2_1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="GatePassDetailV2_1Iterator"/>
+    <searchRegion Binds="GatePassDetailV2_1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="GatePassDetailV2_1Query"/>
+    <iterator Binds="gatepass1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="gatepass1Iterator"/>
+    <searchRegion Binds="gatepass1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="gatepass1Query"/>
+  </executables>
+  <bindings>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="AppModuleDataControl"/>
+    <methodAction id="setSessionValues"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="setSessionValues"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="orgId" NDValue="#{viewScope.OrgId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="userId" NDValue="#{viewScope.UserId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="respId" NDValue="#{viewScope.RespId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="respAppl" NDValue="#{viewScope.RespAppId}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <tree IterBinding="XxGatepassVO1Iterator" id="XxGatepassVO1">
+      <nodeDefinition DefName="model.view.XxGatepassVO" Name="XxGatepassVO10">
+        <AttrNames>
+          <Item Value="HeaderId"/>
+          <Item Value="OrderNumber"/>
+          <Item Value="OrderedDate"/>
+          <Item Value="DeliveryId"/>
+          <Item Value="OrganizationId"/>
+          <Item Value="OrganizationCode"/>
+          <Item Value="OperatingUnit"/>
+          <Item Value="CustomerId"/>
+          <Item Value="CustomerNumber"/>
+          <Item Value="CustomerName"/>
+          <Item Value="SystemDeliveryDate"/>
+          <Item Value="Subinventory"/>
+          <Item Value="GatepassNo"/>
+          <Item Value="GatepassDate"/>
+          <Item Value="TransportNo"/>
+          <Item Value="DriverName"/>
+          <Item Value="DriverContactNo"/>
+          <Item Value="FinalDestination"/>
+          <Item Value="VatChallanNo"/>
+          <Item Value="TotalWeight"/>
+          <Item Value="Status"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="CreationDate"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="LastUpdateDate"/>
+          <Item Value="OuName"/>
+          <Item Value="RowID"/>
+          <Item Value="ItemId"/>
+          <Item Value="ItemDescription"/>
+          <Item Value="ItemCode"/>
+          <Item Value="LineNumber"/>
+          <Item Value="RespId"/>
+          <Item Value="Serial"/>
+          <Item Value="CreatorName"/>
+          <Item Value="ProprietorName"/>
+          <Item Value="PropietorContactNo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="GatePassDetail1Iterator" id="GatePassDetail1">
+      <nodeDefinition DefName="model.view.GatePassDetail"
+                      Name="GatePassDetail10">
+        <AttrNames>
+          <Item Value="HeaderId"/>
+          <Item Value="DeliveryId"/>
+          <Item Value="OrderNumber"/>
+          <Item Value="ItemId"/>
+          <Item Value="ItemCode"/>
+          <Item Value="ItemDesc"/>
+          <Item Value="ItemDescription"/>
+          <Item Value="ShippedQuantity"/>
+          <Item Value="Uom"/>
+          <Item Value="Serial"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="GatePassDetailV2_1Iterator" id="GatePassDetailV2_1">
+      <nodeDefinition DefName="model.view.GatePassDetailV2"
+                      Name="GatePassDetailV2_10">
+        <AttrNames>
+          <Item Value="OrderNumber"/>
+          <Item Value="ItemId"/>
+          <Item Value="ItemCode"/>
+          <Item Value="ItemDesc"/>
+          <Item Value="ShippedQuantity"/>
+          <Item Value="Uom"/>
+          <Item Value="Serial"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="gatepass1Iterator" id="gatepass1">
+      <nodeDefinition DefName="model.view.gatepass" Name="gatepass10">
+        <AttrNames>
+          <Item Value="OperatingUnitName"/>
+          <Item Value="OrderNumber"/>
+          <Item Value="OrderedDate"/>
+          <Item Value="OrganizationCode"/>
+          <Item Value="CustomerNumber"/>
+          <Item Value="ProprietorName"/>
+          <Item Value="ProprietorContactNo"/>
+          <Item Value="SystemDeliveryDate"/>
+          <Item Value="Subinventory"/>
+          <Item Value="CustomerName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="XxGatepassVO1Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

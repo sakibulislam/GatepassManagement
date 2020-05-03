@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.62.29" id="EditPGPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XxGatepassVO1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="XxGatepassVO1Iterator"/>
+    <searchRegion Binds="XxGatepassVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="XxGatepassVO1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="XxGatepassVO1Iterator" id="XxGatepassVO1">
+      <nodeDefinition DefName="model.view.XxGatepassVO" Name="XxGatepassVO10">
+        <AttrNames>
+          <Item Value="HeaderId"/>
+          <Item Value="OrderNumber"/>
+          <Item Value="OrderedDate"/>
+          <Item Value="DeliveryId"/>
+          <Item Value="OrganizationId"/>
+          <Item Value="OrganizationCode"/>
+          <Item Value="OperatingUnit"/>
+          <Item Value="CustomerId"/>
+          <Item Value="CustomerNumber"/>
+          <Item Value="CustomerName"/>
+          <Item Value="SystemDeliveryDate"/>
+          <Item Value="Subinventory"/>
+          <Item Value="GatepassNo"/>
+          <Item Value="GatepassDate"/>
+          <Item Value="TransportNo"/>
+          <Item Value="DriverName"/>
+          <Item Value="DriverContactNo"/>
+          <Item Value="FinalDestination"/>
+          <Item Value="VatChallanNo"/>
+          <Item Value="TotalWeight"/>
+          <Item Value="Status"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="CreationDate"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="LastUpdateDate"/>
+          <Item Value="OuName"/>
+          <Item Value="RowID"/>
+          <Item Value="ItemId"/>
+          <Item Value="ItemDescription"/>
+          <Item Value="ItemCode"/>
+          <Item Value="LineNumber"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>
