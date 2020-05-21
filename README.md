@@ -1,6 +1,6 @@
 # GatepassManagement
-This is a medium scale Java Web Application where we can manage gate-pass and based on that gate-passes we can generate web based reports.
-Stacks that I used:
+Description: This is a medium scale Java Web Application where we can manage gate-pass and based on that gate-passes user can generate web based reports.
+
 • Languages: Java, Groovy
 • Framework: Oracle ADF, Oracle OAF
 • Frontend: JSF, HTML, CSS, Ajax
