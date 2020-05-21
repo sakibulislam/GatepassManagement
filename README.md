@@ -10,6 +10,6 @@ Stacks that I used:
 • Reports Designer: i-Reports
 • Database: Oracle 11g
 • IDE: Oracle JDeveloper
-•
 • Web server: Oracle Weblogic Server
+
 
